@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -132,8 +131,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	wc.lpszClassName = wndClassName;
 	RegisterClassEx(&wc);
 
-	HWND hwnd;
-	hwnd = CreateWindowEx(
+	HWND hwnd = CreateWindowEx(
 		WS_EX_CLIENTEDGE,
 		wndClassName,
 		"ClipboardExchanger",
@@ -142,9 +140,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		NULL, NULL, hInstance, NULL);
 
 	SetupSerialPort(hwnd);
-
-	ShowWindow(hwnd, nShowCmd);
-	UpdateWindow(hwnd);
 
 	MSG msg = {0};
 	while (msg.message != WM_QUIT) {
